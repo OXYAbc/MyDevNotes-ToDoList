@@ -1,9 +1,14 @@
 package com.example.myapp
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mydevtodo.EditTaskActivity
 import com.example.mydevtodo.R
 import com.example.mydevtodo.Task
 
@@ -36,6 +41,21 @@ class TaskAdapter(private val tasks: MutableList<Task>) : RecyclerView.Adapter<T
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task: Task = tasks[position]
         holder.bind(task)
+
+        holder.itemView.findViewById<Button>(R.id.edit_button).setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, EditTaskActivity::class.java).apply {
+                putExtra("taskId", position)
+            }
+            context.startActivity(intent)
+        }
+
+        holder.itemView.findViewById<CheckBox>(R.id.task_done_checkbox).apply {
+            isChecked = task.isDone
+            setOnClickListener {
+                task.isDone = isChecked
+            }
+        }
     }
 
     override fun getItemCount(): Int = tasks.size

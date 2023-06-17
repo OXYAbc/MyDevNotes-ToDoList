@@ -1,3 +1,8 @@
 package com.example.mydevtodo
 
-data class Task(val title: String, val description: String, val topic: String)
+data class Task(
+    var title: String,
+    var description: String,
+    var topic: String,
+    var isDone: Boolean = false
+)

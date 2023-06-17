@@ -20,6 +20,17 @@
 
         <activity android:name="com.example.mydevtodo.AddTaskActivity"/>
 
+        <activity
+            android:name="com.example.mydevtodo.EditTaskActivity"
+            android:label="Edit Task"
+            android:parentActivityName="com.example.mydevtodo.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
