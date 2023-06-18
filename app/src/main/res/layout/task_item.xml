@@ -1,85 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="7dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="7dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="3dp"
         android:backgroundTint="@color/grey"
+        android:elevation="3dp"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:id="@+id/mylayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Title task"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif"/>
-
-            <TextView
-                android:id="@+id/topic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="topic"
-                android:textSize="15sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif"/>
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:weightSum="1">
 
                 <TextView
-                    android:id="@+id/description"
-                    android:layout_width="0dp"
+                    android:id="@+id/title"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
-                    android:text="description"
+                    android:text="Title task"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/task_done_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Done"
                     android:textColor="@color/white" />
 
             </LinearLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:orientation="horizontal"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-
-            <Button
-                android:id="@+id/edit_button"
+            <TextView
+                android:id="@+id/topic"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:text="Edit" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif"
+                android:text="topic"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif"
+                android:text="description"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|right"
+                android:orientation="horizontal"
+                android:padding="7dp">
+
+                <Button
+                    android:id="@+id/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:text="Edit" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
