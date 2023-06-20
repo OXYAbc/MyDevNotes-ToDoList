@@ -1,12 +1,14 @@
 package com.example.myapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydevtodo.EditTaskActivity
 import com.example.mydevtodo.MainActivity
@@ -43,6 +45,16 @@ class TaskAdapter(private val tasks: MutableList<Task>, private val mainActivity
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task: Task = tasks[position]
         holder.bind(task)
+
+        holder.itemView.findViewById<TextView>(R.id.topic).apply {
+
+            when(task.topic){
+                "Notes" -> setTextColor(ContextCompat.getColor(context, R.color.white))
+                "Frontend" -> setTextColor(ContextCompat.getColor(context, R.color.green))
+                "Backend" -> setTextColor(ContextCompat.getColor(context, R.color.yellow))
+                "Other" -> setTextColor(ContextCompat.getColor(context, R.color.teal_200))
+            }
+        }
 
         holder.itemView.findViewById<Button>(R.id.edit_button).setOnClickListener {
             val context = holder.itemView.context

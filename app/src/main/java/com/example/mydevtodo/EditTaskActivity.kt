@@ -11,6 +11,7 @@ class EditTaskActivity : AppCompatActivity() {
     private lateinit var titleEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var topicSpinner: Spinner
+    private lateinit var actionText: TextView
     private var taskId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,10 @@ class EditTaskActivity : AppCompatActivity() {
         titleEditText = findViewById(R.id.titleEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
         topicSpinner = findViewById(R.id.topicSpinner)
+        actionText = findViewById<TextView>(R.id.action_text)
 
+
+        actionText.setText("Edit Item")
         topicSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
