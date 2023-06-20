@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.TextView
 import com.example.myapp.TaskAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -16,9 +17,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var backendProgressBar: ProgressBar
     private lateinit var otherProgressBar: ProgressBar
 
+    private lateinit var progressFEText: TextView
+    private lateinit var progressBEText: TextView
+    private lateinit var progressOtherText: TextView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        progressFEText = findViewById(R.id.progressFE_text)
+        progressBEText = findViewById(R.id.progressBE_text)
+        progressOtherText = findViewById(R.id.progressOther_text)
 
         frontendProgressBar = findViewById(R.id.frontendProgressBar)
         backendProgressBar = findViewById(R.id.backendProgressBar)
@@ -52,8 +62,11 @@ class MainActivity : AppCompatActivity() {
         val otherProgress = calculateProgress(otherTasks, otherTasksDone)
 
         frontendProgressBar.progress = (frontendProgress * 100).toInt()
+        progressFEText.setText("Frontend\n"+ frontendTasksDone + "/" + frontendTasks)
         backendProgressBar.progress = (backendProgress * 100).toInt()
+        progressBEText.setText("Backend\n" + backendTasksDone + "/" + backendTasks)
         otherProgressBar.progress = (otherProgress * 100).toInt()
+        progressOtherText.setText("Other\n" + otherTasksDone + "/" + otherTasks)
     }
 
     private fun calculateProgress(totalTasks: Int, tasksDone: Int): Float {
