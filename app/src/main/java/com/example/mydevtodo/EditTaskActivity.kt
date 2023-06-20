@@ -1,9 +1,9 @@
 package com.example.mydevtodo
 
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class EditTaskActivity : AppCompatActivity() {
@@ -19,7 +19,22 @@ class EditTaskActivity : AppCompatActivity() {
 
         titleEditText = findViewById(R.id.titleEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
-        topicSpinner= findViewById(R.id.topicSpinner)
+        topicSpinner = findViewById(R.id.topicSpinner)
+
+        topicSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                (parent.getChildAt(0) as TextView).setTextColor(Color.WHITE)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
 
         taskId = intent.getIntExtra("taskId", -1)
         val task = TaskManager.tasks.getOrNull(taskId)
