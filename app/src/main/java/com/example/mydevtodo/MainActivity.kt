@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         backendProgressBar = findViewById(R.id.backendProgressBar)
         otherProgressBar = findViewById(R.id.otherProgressBar)
 
-
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView)
         tasksRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateProgressBars() {
+    fun updateProgressBars() {
         val tasks = TaskManager.tasks
         val totalTasks = tasks.size.toFloat()
 
@@ -67,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        tasksRecyclerView.adapter = TaskAdapter(TaskManager.tasks)
+        tasksRecyclerView.adapter = TaskAdapter(TaskManager.tasks, this)
         updateProgressBars()
     }
 }

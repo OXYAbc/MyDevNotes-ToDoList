@@ -2,17 +2,17 @@ package com.example.myapp
 
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydevtodo.EditTaskActivity
+import com.example.mydevtodo.MainActivity
 import com.example.mydevtodo.R
 import com.example.mydevtodo.Task
 
-class TaskAdapter(private val tasks: MutableList<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private val tasks: MutableList<Task>, private val mainActivity: MainActivity) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.task_item, parent, false)) {
@@ -54,6 +54,7 @@ class TaskAdapter(private val tasks: MutableList<Task>) : RecyclerView.Adapter<T
             isChecked = task.isDone
             setOnClickListener {
                 task.isDone = isChecked
+                mainActivity.updateProgressBars()
             }
         }
     }
